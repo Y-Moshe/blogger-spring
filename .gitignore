@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### App files ###
+db_root_password.txt

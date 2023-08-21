@@ -1,0 +1,24 @@
+services:
+
+    db:
+        container_name: blogger-app_db
+        image: mysql:latest
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'blogger_db'
+            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+        secrets:
+            - db_root_password
+        ports:
+            - '3306:3306'
+        expose:
+            - '3306'
+        volumes:
+            - my-db:/var/lib/mysql
+
+secrets:
+    db_root_password:
+        file: './db_root_password.txt'
+
+volumes:
+  my-db:
