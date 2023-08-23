@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Blog extends Auditable {
+public class Blog extends BaseEntity {
 
     @NotBlank
     private String title;

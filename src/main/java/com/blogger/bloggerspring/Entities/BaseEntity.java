@@ -21,7 +21,7 @@ import lombok.Setter;
 @EntityListeners(AuditingEntityListener.class)
 @Setter
 @Getter
-public class Auditable {
+public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

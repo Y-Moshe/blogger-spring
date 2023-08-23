@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 // @RequiredArgsConstructor
 @NoArgsConstructor
-public class Comment extends Auditable {
+public class Comment extends BaseEntity {
 
     @NotBlank
     private String text;

@@ -25,7 +25,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User extends Auditable implements UserDetails {
+public class User extends BaseEntity implements UserDetails {
 
     @NotBlank
     @NonNull
