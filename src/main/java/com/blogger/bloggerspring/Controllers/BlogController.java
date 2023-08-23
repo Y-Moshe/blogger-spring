@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @Tag(name = "Blog Controller")
-@RequestMapping("/blog")
+@RequestMapping("/api/blog")
 @RequiredArgsConstructor
 public class BlogController {
     private final BlogService _blogService;
