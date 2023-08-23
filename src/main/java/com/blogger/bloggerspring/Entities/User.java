@@ -29,6 +29,11 @@ public class User extends Auditable implements UserDetails {
 
     @NotBlank
     @NonNull
+    @Column(nullable = false)
+    private String fullName;
+
+    @NotBlank
+    @NonNull
     @Column(nullable = false, unique = true)
     @Email
     private String email;
