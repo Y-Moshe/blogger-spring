@@ -12,5 +12,5 @@ public class AuthResponseDto {
 
     private UserDto user;
     private String token;
-    private Date exprationDate;
+    private Date expirationDate;
 }
