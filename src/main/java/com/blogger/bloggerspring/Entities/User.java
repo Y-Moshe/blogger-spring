@@ -3,8 +3,6 @@ package com.blogger.bloggerspring.Entities;
 import java.util.Collection;
 import java.util.List;
 
-import org.hibernate.validator.constraints.Length;
-import org.springframework.lang.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +14,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,23 +24,20 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class User extends BaseEntity implements UserDetails {
 
     @NotBlank
-    @NonNull
     @Column(nullable = false)
     private String fullName;
 
     @NotBlank
-    @NonNull
-    @Column(nullable = false, unique = true)
     @Email
+    @Column(nullable = false, unique = true)
     private String email;
 
     @NotBlank
-    @NonNull
     @Column(nullable = false)
-    @Length(min = 6, max = 24)
     private String password;
 
     @Enumerated(EnumType.STRING)
