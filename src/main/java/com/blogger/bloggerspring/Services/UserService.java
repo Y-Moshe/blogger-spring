@@ -2,36 +2,18 @@ package com.blogger.bloggerspring.Services;
 
 import java.util.Optional;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-
+import com.blogger.bloggerspring.Dtos.AuthCredentialsDto;
+import com.blogger.bloggerspring.Dtos.AuthResponseDto;
 import com.blogger.bloggerspring.Entities.User;
-import com.blogger.bloggerspring.Interfaces.IUserService;
-import com.blogger.bloggerspring.Repositories.UserRepository;
 
-@Service
-public class UserService implements IUserService {
-    private UserRepository _repository;
-    private BCryptPasswordEncoder _bcrypt;
+public interface UserService {
+    User getUserById(Long id);
 
-    public UserService(UserRepository repository) {
-        _repository = repository;
-    }
+    Optional<User> getUserByEmail(String email);
 
-    @Override
-    public Optional<User> getUserById(Long id) {
-        return _repository.findById(id);
-    }
+    AuthResponseDto createUser(User User);
 
-    @Override
-    public Optional<User> getUserByEmail(String email) {
-        return _repository.findByEmail(email);
-    }
+    AuthResponseDto authenticateUser(AuthCredentialsDto credentials);
 
-    @Override
-    public User saveUser(User user) {
-        String hashedPassword = _bcrypt.encode(user.getPassword());
-        user.setPassword(hashedPassword);
-        return _repository.save(user);
-    }
+    User getLoggedInUser();
 }
