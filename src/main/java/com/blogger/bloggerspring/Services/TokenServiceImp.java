@@ -18,10 +18,10 @@ import io.jsonwebtoken.security.Keys;
 @Service
 public class TokenServiceImp implements TokenService {
     @Value("${app.jwt-secret-key}")
-    private static String JWT_SECRET_KEY;
+    private String JWT_SECRET_KEY;
 
-    @Value("${app.jwt-expration}")
-    private static int JWT_EXPRATION;
+    @Value("${app.jwt-expiration}")
+    private int JWT_EXPIRATION;
 
     /**
      * Return a Map with key-value pairs with a "token" of type string and the
@@ -32,7 +32,7 @@ public class TokenServiceImp implements TokenService {
             String subject,
             Map<String, Object> claims) {
 
-        Date expiration = new Date(System.currentTimeMillis() + TokenServiceImp.JWT_EXPRATION);
+        Date expiration = new Date(System.currentTimeMillis() + this.JWT_EXPIRATION);
         String token = Jwts
                 .builder()
                 .setClaims(claims)
@@ -76,7 +76,7 @@ public class TokenServiceImp implements TokenService {
     }
 
     private Key getSignInKey() {
-        byte[] bytes = Decoders.BASE64.decode(TokenServiceImp.JWT_SECRET_KEY);
+        byte[] bytes = Decoders.BASE64.decode(this.JWT_SECRET_KEY);
         return Keys.hmacShaKeyFor(bytes);
     }
 }

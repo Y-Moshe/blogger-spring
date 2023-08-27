@@ -59,7 +59,7 @@ public class UserServiceImp implements UserService {
         return AuthResponseDto.builder()
                 .user(UserMapper.MAPPER.mapToUserDto(savedUser))
                 .token((String) tokenMap.get("token"))
-                .exprationDate((Date) tokenMap.get("expiration"))
+                .expirationDate((Date) tokenMap.get("expiration"))
                 .build();
     }
 
@@ -83,7 +83,7 @@ public class UserServiceImp implements UserService {
             return AuthResponseDto.builder()
                     .user(UserMapper.MAPPER.mapToUserDto(user))
                     .token((String) tokenMap.get("token"))
-                    .exprationDate((Date) tokenMap.get("expiration"))
+                    .expirationDate((Date) tokenMap.get("expiration"))
                     .build();
 
         } catch (AuthenticationException ex) {

@@ -34,3 +34,4 @@ build/
 
 ### App files ###
 db_root_password.txt
+application-secrets.properties
