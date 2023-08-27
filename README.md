@@ -1,5 +1,9 @@
 # Blogger Spring
 
+<p align="center">
+  <img width="500px" height="350px" src="https://res.cloudinary.com/dgczimxpo/image/upload/v1693165831/blogger-spring/github-readme_s579l1.png">
+</p>
+
 Simple blogger application using Spring Boot(v3) with Java(v17) together with MySQL Database.
 
 - RESTFul API 
