@@ -13,7 +13,6 @@ public class ApiErrorResponse {
     private int statusCode = HttpStatus.INTERNAL_SERVER_ERROR.value();
     private String message;
     private List<String> errors;
-    private Exception exception = null;
 
     public ApiErrorResponse(String message) {
         this.message = message;
